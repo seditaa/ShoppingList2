@@ -33,8 +33,7 @@
             android:layout_alignParentTop="true"
             android:layout_toStartOf="@+id/btn_add"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name"
+            android:inputType="text"
             android:textSize="24sp" />
 
         <Button
