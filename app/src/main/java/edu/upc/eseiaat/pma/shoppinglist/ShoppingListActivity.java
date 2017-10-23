@@ -20,7 +20,7 @@ import static android.media.CamcorderProfile.get;
 public class ShoppingListActivity extends AppCompatActivity {
 
     private ArrayList <String> itemList;
-    private ArrayAdapter <String> adapter;
+    private ShoppingListAdapter adapter;
 
     private ListView list;
     private EditText edit_item;
@@ -37,7 +37,7 @@ public class ShoppingListActivity extends AppCompatActivity {
         itemList.add("embotits");
         itemList.add("gelats");
         itemList.add("fruita");
-        adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,itemList);
+        adapter = new ShoppingListAdapter(this,R.layout.shopping_item,itemList);
         list.setAdapter(adapter);
 
         edit_item.setOnEditorActionListener(new TextView.OnEditorActionListener() {
