@@ -19,7 +19,7 @@ import static android.media.CamcorderProfile.get;
 
 public class ShoppingListActivity extends AppCompatActivity {
 
-    private ArrayList <String> itemList;
+    private ArrayList <ShoppingItem> itemList;
     private ShoppingListAdapter adapter;
 
     private ListView list;
@@ -34,9 +34,9 @@ public class ShoppingListActivity extends AppCompatActivity {
         edit_item = (EditText) findViewById(R.id.edit_item);
 
         itemList = new ArrayList<>();
-        itemList.add("embotits");
-        itemList.add("gelats");
-        itemList.add("fruita");
+        itemList.add(new ShoppingItem("embotits"));
+        itemList.add(new ShoppingItem("gelats"));
+        itemList.add(new ShoppingItem("fruita"));
         adapter = new ShoppingListAdapter(this,R.layout.shopping_item,itemList);
         list.setAdapter(adapter);
 
@@ -80,9 +80,10 @@ public class ShoppingListActivity extends AppCompatActivity {
     private void addItem() {
         String item_text = edit_item.getText().toString();
         if(!item_text.isEmpty()){
-            itemList.add(item_text);
+            itemList.add(new ShoppingItem(item_text));
             adapter.notifyDataSetChanged();
             edit_item.setText("");
         }
+        list.smoothScrollToPosition(itemList.size()-1);
     }
 }
